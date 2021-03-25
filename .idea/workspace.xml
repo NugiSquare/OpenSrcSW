@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9db212f1-3565-4fdc-a35c-e18efdc07fda" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opensourcew1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/opensourcew1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/opensourcew1/data/book.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/opensourcew1/data/result.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/opensourcew1/data/떡.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/opensourcew1/data/라면.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/opensourcew1/data/아이스크림.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/opensourcew1/data/초밥.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/opensourcew1/data/파스타.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/result.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/result.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/떡.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/떡.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/라면.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/라면.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/아이스크림.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/아이스크림.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/초밥.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/초밥.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/파스타.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/파스타.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/indexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/indexer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +79,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615436249980</updated>
-      <workItem from="1615436254477" duration="17648000" />
+      <workItem from="1615436254477" duration="18992000" />
     </task>
     <servers />
   </component>
