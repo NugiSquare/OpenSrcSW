@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9db212f1-3565-4fdc-a35c-e18efdc07fda" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/kuir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/kuir.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +79,7 @@
       <updated>1615436249980</updated>
       <workItem from="1615436254477" duration="43104000" />
       <workItem from="1617701952326" duration="19000" />
+      <workItem from="1617948474120" duration="2596000" />
     </task>
     <servers />
   </component>
@@ -141,10 +141,10 @@
     </state>
     <state x="119" y="41" key="SettingsEditor/39.25.1401.875@39.25.1401.875" timestamp="1616637579012" />
     <state x="120" y="41" key="SettingsEditor/40.25.1400.875@40.25.1400.875" timestamp="1615440176218" />
-    <state x="67" y="291" key="com.intellij.ide.util.TipDialog" timestamp="1615436256348">
+    <state x="67" y="291" key="com.intellij.ide.util.TipDialog" timestamp="1617948477093">
       <screen x="40" y="25" width="1400" height="875" />
     </state>
-    <state x="67" y="291" key="com.intellij.ide.util.TipDialog/40.25.1400.875@40.25.1400.875" timestamp="1615436256348" />
+    <state x="67" y="291" key="com.intellij.ide.util.TipDialog/40.25.1400.875@40.25.1400.875" timestamp="1617948477093" />
     <state x="39" y="83" key="new project wizard" timestamp="1616751101522">
       <screen x="39" y="25" width="1401" height="875" />
     </state>
