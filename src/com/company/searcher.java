@@ -68,11 +68,7 @@ public class searcher {
             resultMap.put(Integer.parseInt(entry.id()), 0.0);
         }
 
-<<<<<<< HEAD
         resultMap = Calcsim(kl, hashMap, resultMap);
-=======
-        resultMap = InnerProduct(kl, hashMap, resultMap);
->>>>>>> feature
 
         //sort by key
         Object[] mapkey = resultMap.keySet().toArray();
@@ -138,7 +134,6 @@ public class searcher {
         return sortedMap;
     }
 
-<<<<<<< HEAD
     private static HashMap<Integer, Double> Calcsim(KeywordList kl, HashMap<String, ArrayList<String>> hashMap, HashMap<Integer, Double> originresultMap)
     {
 
@@ -205,8 +200,6 @@ public class searcher {
         return cosineresultMap;
     }
 
-=======
->>>>>>> feature
     private static HashMap<Integer, Double> InnerProduct(KeywordList kl, HashMap<String, ArrayList<String>> hashMap, HashMap<Integer, Double> resultMap)
     {
 
@@ -217,18 +210,12 @@ public class searcher {
                 if(j % 2 == 0) {
                     Integer tmpkey = Integer.parseInt(arrayList.get(j));
                     if (resultMap.get(tmpkey) == null) {
-<<<<<<< HEAD
                         // don't need when arraylist is initalized
-=======
->>>>>>> feature
                         String strtmp2 = arrayList.get(j+1);
                         Double dbltmp2 = Double.parseDouble(strtmp2);
                         resultMap.put(tmpkey, Math.round(dbltmp2*100)/100.0);
                     } else {
-<<<<<<< HEAD
                         //core logic
-=======
->>>>>>> feature
                         Double dbltmp1 = resultMap.get(tmpkey);
                         Double dbltmp2 = Double.parseDouble(arrayList.get(j+1));
                         resultMap.put(Integer.parseInt(arrayList.get(j)), Math.round((dbltmp1 + dbltmp2)*100)/100.0);
@@ -240,7 +227,6 @@ public class searcher {
 
         return resultMap;
     }
-<<<<<<< HEAD
 
     public static double cosineSimilarity(double qid, double[] vectorA, double[] vectorB) {
         double dotProduct = qid;
@@ -253,6 +239,4 @@ public class searcher {
         }
         return Math.round(dotProduct / (Math.sqrt(normA) * Math.sqrt(normB)));
     }
-=======
->>>>>>> feature
 }
