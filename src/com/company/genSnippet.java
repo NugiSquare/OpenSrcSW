@@ -54,6 +54,6 @@ public class genSnippet {
             }
         }
 
-        System.out.println(crawled[i]);
+        System.out.println(crawled[flag]);
     }
 }
