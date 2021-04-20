@@ -68,26 +68,7 @@ public class searcher {
             resultMap.put(Integer.parseInt(entry.id()), 0.0);
         }
 
-        //doing calcSim
-        for (int i = 0; i < kl.size(); i++) {
-            Keyword kwrd = kl.get(i);
-            ArrayList<String> arrayList = hashMap.get(kwrd.getString());
-            for(int j = 0; j < arrayList.size(); j++) {
-                if(j % 2 == 0) {
-                    Integer tmpkey = Integer.parseInt(arrayList.get(j));
-                    if (resultMap.get(tmpkey) == null) {
-                        String strtmp2 = arrayList.get(j+1);
-                        Double dbltmp2 = Double.parseDouble(strtmp2);
-                        resultMap.put(tmpkey, Math.round(dbltmp2*100)/100.0);
-                    } else {
-                        Double dbltmp1 = resultMap.get(tmpkey);
-                        Double dbltmp2 = Double.parseDouble(arrayList.get(j+1));
-                        resultMap.put(Integer.parseInt(arrayList.get(j)), Math.round((dbltmp1 + dbltmp2)*100)/100.0);
-                    }
-
-                }
-            }
-        }
+        resultMap = InnerProduct(kl, hashMap, resultMap);
 
         //sort by key
         Object[] mapkey = resultMap.keySet().toArray();
@@ -150,5 +131,31 @@ public class searcher {
         }
 
         return sortedMap;
+    }
+
+    private static HashMap<Integer, Double> InnerProduct(KeywordList kl, HashMap<String, ArrayList<String>> hashMap, HashMap<Integer, Double> resultMap)
+    {
+
+        for (int i = 0; i < kl.size(); i++) {
+            Keyword kwrd = kl.get(i);
+            ArrayList<String> arrayList = hashMap.get(kwrd.getString());
+            for(int j = 0; j < arrayList.size(); j++) {
+                if(j % 2 == 0) {
+                    Integer tmpkey = Integer.parseInt(arrayList.get(j));
+                    if (resultMap.get(tmpkey) == null) {
+                        String strtmp2 = arrayList.get(j+1);
+                        Double dbltmp2 = Double.parseDouble(strtmp2);
+                        resultMap.put(tmpkey, Math.round(dbltmp2*100)/100.0);
+                    } else {
+                        Double dbltmp1 = resultMap.get(tmpkey);
+                        Double dbltmp2 = Double.parseDouble(arrayList.get(j+1));
+                        resultMap.put(Integer.parseInt(arrayList.get(j)), Math.round((dbltmp1 + dbltmp2)*100)/100.0);
+                    }
+
+                }
+            }
+        }
+
+        return resultMap;
     }
 }
