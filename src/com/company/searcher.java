@@ -68,26 +68,7 @@ public class searcher {
             resultMap.put(Integer.parseInt(entry.id()), 0.0);
         }
 
-        //doing calcSim
-        for (int i = 0; i < kl.size(); i++) {
-            Keyword kwrd = kl.get(i);
-            ArrayList<String> arrayList = hashMap.get(kwrd.getString());
-            for(int j = 0; j < arrayList.size(); j++) {
-                if(j % 2 == 0) {
-                    Integer tmpkey = Integer.parseInt(arrayList.get(j));
-                    if (resultMap.get(tmpkey) == null) {
-                        String strtmp2 = arrayList.get(j+1);
-                        Double dbltmp2 = Double.parseDouble(strtmp2);
-                        resultMap.put(tmpkey, Math.round(dbltmp2*100)/100.0);
-                    } else {
-                        Double dbltmp1 = resultMap.get(tmpkey);
-                        Double dbltmp2 = Double.parseDouble(arrayList.get(j+1));
-                        resultMap.put(Integer.parseInt(arrayList.get(j)), Math.round((dbltmp1 + dbltmp2)*100)/100.0);
-                    }
-
-                }
-            }
-        }
+        resultMap = Calcsim(kl, hashMap, resultMap);
 
         //sort by key
         Object[] mapkey = resultMap.keySet().toArray();
@@ -101,8 +82,9 @@ public class searcher {
         for( Object key : resultMap.keySet() ){
             System.out.println( String.format(key + " -> " + resultMap.get(key)) );
         }
-
          */
+
+
 
         //read and print title content
         int flag = 0;
@@ -150,5 +132,111 @@ public class searcher {
         }
 
         return sortedMap;
+    }
+
+    private static HashMap<Integer, Double> Calcsim(KeywordList kl, HashMap<String, ArrayList<String>> hashMap, HashMap<Integer, Double> originresultMap)
+    {
+
+        HashMap<Integer, Double> resultMap = new HashMap<Integer, Double>();
+
+        resultMap = InnerProduct(kl, hashMap, originresultMap);
+
+        HashMap<Integer, Double> cosineresultMap = new HashMap<Integer, Double>();
+
+        double[] wq = new double[5];
+        double[] w0 = new double[5];
+
+        //init double array
+        for(int j = 0; j < 5; j++) {
+            wq[j] = 0.0;
+            w0[j] = 0.0;
+        }
+
+        for (int i = 0; i < kl.size(); i++) {
+            Keyword kwrd = kl.get(i);
+            ArrayList<String> arrayList = hashMap.get(kwrd.getString());
+
+            for(int j = 0; j < arrayList.size(); j++) {
+                if(j % 2 == 0) {
+                    Integer tmpkey = Integer.parseInt(arrayList.get(j));
+                    if (resultMap.get(tmpkey) == null) {
+                        // don't need when arraylist is initalized
+                        String strtmp2 = arrayList.get(j+1);
+                        //wq[j/2] = Double.parseDouble(strtmp2);
+                        w0[i] = 1.0;
+                        wq[i] = Double.parseDouble(strtmp2);
+                    } else {
+                        //core logic
+                        //wq[j/2] = Double.parseDouble(arrayList.get(j+1));
+                        w0[i] = 1.0;
+                        wq[i] = Double.parseDouble(arrayList.get(j+1));
+                    }
+
+                }
+            }
+
+        }
+        /*
+        //print double array
+        System.out.println("wq is");
+        for(int j = 0; j < 5; j++) {
+            System.out.println(wq[j]);
+        }
+        System.out.println("w0 is");
+        for(int j = 0; j < 5; j++) {
+            System.out.println(w0[j]);
+        }
+        System.out.println("qid is");
+        for(int j = 0; j < 5; j++) {
+            System.out.println(resultMap.get(j+1));
+        }
+
+         */
+
+        for(int i=0; i<5; i++) {
+            cosineresultMap.put(i+1, cosineSimilarity(resultMap.get(i+1), wq, w0));
+        }
+
+        return cosineresultMap;
+    }
+
+    private static HashMap<Integer, Double> InnerProduct(KeywordList kl, HashMap<String, ArrayList<String>> hashMap, HashMap<Integer, Double> resultMap)
+    {
+
+        for (int i = 0; i < kl.size(); i++) {
+            Keyword kwrd = kl.get(i);
+            ArrayList<String> arrayList = hashMap.get(kwrd.getString());
+            for(int j = 0; j < arrayList.size(); j++) {
+                if(j % 2 == 0) {
+                    Integer tmpkey = Integer.parseInt(arrayList.get(j));
+                    if (resultMap.get(tmpkey) == null) {
+                        // don't need when arraylist is initalized
+                        String strtmp2 = arrayList.get(j+1);
+                        Double dbltmp2 = Double.parseDouble(strtmp2);
+                        resultMap.put(tmpkey, Math.round(dbltmp2*100)/100.0);
+                    } else {
+                        //core logic
+                        Double dbltmp1 = resultMap.get(tmpkey);
+                        Double dbltmp2 = Double.parseDouble(arrayList.get(j+1));
+                        resultMap.put(Integer.parseInt(arrayList.get(j)), Math.round((dbltmp1 + dbltmp2)*100)/100.0);
+                    }
+
+                }
+            }
+        }
+
+        return resultMap;
+    }
+
+    public static double cosineSimilarity(double qid, double[] vectorA, double[] vectorB) {
+        double dotProduct = qid;
+        double normA = 0.0;
+        double normB = 0.0;
+        for (int i = 0; i < vectorA.length; i++) {
+            //dotProduct += vectorA[i] * vectorB[i];
+            normA += Math.pow(vectorA[i], 2);
+            normB += Math.pow(vectorB[i], 2);
+        }
+        return Math.round(dotProduct / (Math.sqrt(normA) * Math.sqrt(normB)));
     }
 }
