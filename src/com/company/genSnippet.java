@@ -35,7 +35,7 @@ public class genSnippet {
 
         String[][] crawled = ["라면, 밀가루, 달걀, 밥, 생선", "라면 물 소금 반죽", "첨부 봉지면 인기", "초밥 라면 밥물 채소 소금", "초밥 종류 활"];
         String[] keyword = keywordlist.split(" ");
-어
+
         int[] resultflag = new int[5];
 
         for(int i = 0; i < 5; i++) {
